@@ -1,0 +1,31 @@
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui")
+  title {% if page.title %}{{ page.title }}{% else %}{{ site.website }}{% endif %}
+  meta(name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}")
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')
+  meta(name='application-name', content='zamorany.com')
+  meta(itemprop='url' content='http://zamorany.com/')
+  meta(name='msapplication-TileColor', content='#ffffff')
+  meta(property="og:url" content="http://{{site.url}}{{ page.url }}")
+  //- meta(property="og:image" content='http://{{ site.url }}/assets/img/logo-01.png')
+  link(rel="stylesheet" type="text/css" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}")
+  //- tags for creatinga featherlight gallery
+  | {% if page.custom_css %}
+  | {% for stylesheet in page.custom_css %}
+  meta(property="og:image" content='http://{{site.url}}{{ page.url }}best_image.jpg')
+  link(async href='//cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css', type='text/css', rel='stylesheet')
+  link(async href='//cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.gallery.min.css', type='text/css', rel='stylesheet')
+  | {% endfor %}
+  | {% endif %}
+  | {% if page.fbshare %}
+  meta(property="og:image" content='http://{{site.url}}{{ page.url }}best_image.jpg')
+  //- or
+   //- meta(property="og:image" content='http://zamorany.com/projects/kitchens/best_image.jpg')
+  | {% endif %}
+  //- link(rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}")
+  //- link(rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ ''/feed.xml' | prepend: site.baseurl | prepend: site.url }}")
+  link(rel='shortcut icon', href='{{ site.baseurl }}/assets/img/favicon.ico')
+  //- script(asyn src="{{ site.baseurl }} /assets/js/modernizr.custom.21883.js" )

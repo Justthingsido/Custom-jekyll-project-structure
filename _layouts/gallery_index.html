@@ -1,0 +1,30 @@
+---
+layout: default
+fbshare: share
+excerpt: We know how important every project is to our clients, through experience, skill, and capabilities, we help our clients anticipate project challenges, and develop solutions that help meet our clients objective.
+         At Zamora Construction and Remodeling, we have but one mission, gain the full trust of our clients, after all we are not only building and remodeling their infrastructure, but also building and  redesigning the world around us.
+
+---
+<section id="portfolio" class="portfolio inner">
+  <div class="section-wrapper">
+    <div class="section-content">
+      <h3 class="section-name">Projects</h3>
+      {% for project in site.data.projects.projects %}
+      <div class="description">
+        {% for nestedabout in project.description %}
+        <p>{{ nestedabout.nested }}</p>{% endfor %}
+      </div>{% endfor %}
+      <div class="gallery-content">
+        {% for gallery in page.galleries %}
+        <div class="gallery-wrapper">
+          <a href="{{ gallery['gallery'] }}">
+            <img class="gallery-best-image" alt="{{ gallery['gallery'] }}" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
+          </a>
+          <h4><a href="{{ gallersy['gallery'] }}">{{ gallery["name"] }}</a></h4>
+          {{ gallery["images"] | size }} images{% if gallery["images"].size != 1 %}{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

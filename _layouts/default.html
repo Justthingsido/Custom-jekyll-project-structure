@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+  <div class="home">
+    {% include header.html %}
+    <div class="home-content">
+      <div class="home-sections"> <!-- animated fadeInRight -->
+        <!-- Contnet from index, contact, about, etc. -->
+        {{ content }}
+      </div>
+    </div>
+    <!-- {% include share.html %}  -->
+    {% include footer.html %}
+  </div>
+
+
+  <!-- Require jquery by default, if not using it, disable -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script async src="/assets/js/scripts.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <!--Works Together with share.jade file in _includes/jade-->
+  <!-- <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script> -->
+
+  <!-- featherlight -. used with gallery_page. -->
+  {% if page.featherlight %} {% for js_file in page.featherlight %}
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    // featherlight
+    $(document).ready(function() {
+      $('.gallery').featherlightGallery({
+        gallery: {
+          fadeIn: 300,
+          fadeOut: 300
+        },
+        openSpeed: 300,
+        closeSpeed: 300
+      });
+      $('.gallery2').featherlightGallery({
+        gallery: {
+          next: 'next »',
+          previous: '« previous'
+        },
+        variant: 'featherlight-gallery2'
+      });
+    });
+  </script>
+  | {% endfor %} | {% endif %}
+
+  <!-- Google Analytics  -->
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-70296153-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Load Facebook SDK for JavaScript
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=733223316787067";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+-->
+</body>
+
+</html>

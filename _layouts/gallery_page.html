@@ -1,0 +1,21 @@
+---
+layout: default
+custom_css: CustomeCSS
+featherlight: Customjs
+---
+<section id="proj-imgs" class="proj-imgs">
+  <div class="section-wrapper">
+    <div class="section-content">
+      <h4><a class="section-name"href="/{{ site.gallery.dir }}">{{ page.title }}</a></h4>
+      <div class="proj-imgs-container">
+        <hr /> {% for image in page.images %}
+        <div class="gallery-image-wrapper">
+          <a href="{{ image }}" class="thumbnail gallery2" {% if site.gallery.lightbox %} rel="lightbox[{{ page.gallery }}]" {% endif %}>
+            <img class="gallery-image img" alt="{{ image }}" src="thumbs/{{ image }}" />
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

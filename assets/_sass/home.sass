@@ -1,0 +1,64 @@
+.home
+  display: flex
+  background: $white
+  // image: url(/assets/img/background.png)
+  flex-direction: column
+  @media (max-width: 775px)
+    display: block
+
+
+.home-content
+  position: relative
+  // top depends on height of header
+  top: 80px
+  // Testing Fixed header and footer
+  height: 300vh
+  //change width to 100% depending if there is a sidebar or not
+  width: 95%
+  margin-bottom: 60px
+  background: white
+  z-index: 1
+  align-self: center
+
+
+.home-sections
+  margin: 0 auto
+  max-width: 100vw
+
+section
+  display: flex
+
+
+
+.section-wrapper
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+
+
+.section-content
+  width: 100%
+  margin: auto auto
+
+
+.content-wrapper
+  width: 100%
+
+
+@media screen and (max-width: 640px)
+  section
+    .section-wrapper
+      margin: 0
+
+
+
+
+// //hide scroll bar
+// ::-webkit-scrollbar
+//   display: none
+//
+// html
+//   -ms-overflow-style: none
+
+    //spining logo
