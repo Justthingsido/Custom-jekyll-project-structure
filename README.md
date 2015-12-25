@@ -24,9 +24,14 @@ Jekyll Project Strucutre with Gulp, Sass, Jade, gallery generator, + More
     - functions.js
   - _sass
     - 1-tools
+      - ...
     - 2-basics
+      - ...
     - 3-modules
+      - ...
     - 4-gallery
+      - galkery-index.sass
+      - gallery-page.sass
     - 5-jekyll-defaults
   - css
     - main.css
