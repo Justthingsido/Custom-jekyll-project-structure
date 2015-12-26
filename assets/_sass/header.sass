@@ -1,7 +1,173 @@
-section.header
-  position: fixed
+.home
+  header
+    width: 100%
+    .header-position
+      display: flex
+      position: fixed
+      height: 80px
+      z-index: 100
+      flex-direction: row
+      background: $white
+      width: 100vw
+      width: 100%
+      box-shadow: 0 0 20px rgba($blue,0.4)
+      border-bottom: 1px solid $blue
+
+    .fixed
+    	height: 80px
+
+
+    .logo
+      display: flex
+      justify-content: center
+      margin: 0 auto
+      margin-left: 20px
+      svg
+        +size(50px)
+        margin: auto
+        cursor: pointer
+        fill: black
+    .text
+      font-size: 20px
+      margin: 0 auto
+      margin-left: 20px
+      text-align: center
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      color: $blue
+      font-weight: bold
+      font-style: italic
+      // text-shadow: 0 0 1px $blue
+    //Desktop navigation
+    .nav-bar
+      display: flex
+      flex-direction: column-reverse
+      justify-content: center
+
+    .site-nav
+      display: flex
+      align-items: center
+      margin-left: auto
+      padding: 0 30px
+      ul
+        list-style: none
+        display: flex
+        flex-direction: row
+        li
+          padding: 0 20px
+          a
+            display: flex
+            color: black
+            text-align: right
+
+            &:hover
+              color: $red
+              background: rgba(black, 0.3)
+              text-decoration: overline
+
+
+    .current
+      text-decoration: underline
+      text-transform: uppercase
+      color: $red !important
+      font-size: 100%
+
+    .mobile-nav-toggle
+      display: none
+      +size(35px)
+      margin-right: 20px
+      align-items: center
+      cursor: pointer
+      z-index: 999
+
+
+      &:hover
+        svg
+          transition: all 1.5s cubic-bezier(.34,-1.94,.29,.33)
+          +size(100%)
+          transform: rotate(180deg)
+
+      svg
+        +size(100%)
+
+  //mobile-nav
+
+  .mobile-nav
+    display: none
+    position: fixed
+    top: 0
+    width: 100%
+    height: 100%
+    padding: 60px 0 0
+    bottom: auto
+    z-index: 98
+    box-shadow: 0 0 20px rgba(0,0,0,0.4)
+    flex-direction: row
+
+
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      width: 100%
+
+    li
+      text-align: center
+      box-shadow: 0 2px 0 rgba($blue,0.4)
+
+      &:last-child
+        margin-bottom: 0
+        border-bottom: 0
+
+
+    a
+      font-size: 120%
+      padding: 15px 0
+      display: flex
+      justify-content: center
+      width: 100%
+      &:hover
+        background: white
+        color: $orange
+
+.mobile-nav-toggle:checked + .nav-bar
   display: flex
-  width: 100vw
-  justify-content: center
-  z-index: 2
-  top: 0
+
+@media (max-width: 775px)
+  .home
+    header
+      width: 100%
+      transition: all .5s ease-in-out
+
+      .header-position
+        width: auto
+        background: white
+        width: 100%
+        height: 60px
+        top: 0
+        left: auto
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        transition: all .5s ease-in-out
+
+        .text
+          font-size: 18px
+
+
+      .nav-bar,
+        display: none
+
+      .logo > svg
+        +size(40px)
+        padding-left: 0px
+        fill: black
+        z-index: 999
+      .text
+        width: 100%
+
+      .mobile-nav-toggle
+        display: block
+        z-index: 10

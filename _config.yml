@@ -8,17 +8,25 @@
 
 # Site settings
 
-title: Your awesome title
+title: Jekyll Template
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://resume.justthingsido.com" # the base hostname & protocol for your site
 twitter_username: GRemache93
 github_username:  justthingsido
 linkedin_username: gremache
+
+# used to eliminate the need to add .html at the of of the URL
+permalink: pretty
+
+#- uncomment ga if you are using Google Analytics (replace 'UA-70296153' with your own)
+# ga: UA-70296153-1
+#- uncomment for fbAppId (Replace '733223316...' with you own)
+# fbAppId: 733223316787067
 
 # Build settings
 markdown: kramdown
@@ -51,6 +59,6 @@ gallery:
   # best_image is image for the index page (defaults to last image)
   galleries:
     # name of directory
-    folder_name:
+    gratisography:
       # image to be used as thumbnails in index page
       best_image: best_image.jpg

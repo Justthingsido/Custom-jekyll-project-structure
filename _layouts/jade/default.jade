@@ -1,0 +1,16 @@
+doctype html
+html 
+	| {% include head.html %}
+	body
+		.home 
+			| {% include header.html %}
+			.home-content
+				.home-sections 
+					//- animated fadeInRight
+					//- Content from index, contact, about, etc.
+					| {{ content }}
+			| 
+			//- {% include share.html %}
+			| 
+			| {% include footer.html %}
+			| {% include body-links.html %}

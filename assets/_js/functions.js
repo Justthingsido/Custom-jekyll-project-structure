@@ -1,15 +1,29 @@
-var isShowing = false;
-$(window).scroll(function() {
-    if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-        // alert("Show Footer");
-        $('.business-info').addClass("footerShowBuss");
-        $('.footer-position').addClass("animated bounceInRight footerShow");
-        isShowing = true;
+//set currecnt page link as active
 
-    } else if (isShowing === true && $(window).scrollTop() + $(window).height() <= $(document).height() * 0.9) {
-        // alert("Hide Footer");
-        $('.business-info').removeClass("footerShowBuss");
-        $('.footer-position').removeClass("animated bounceInRight footerShow");
-        isShowing = false;
+
+$(document).ready(function() {
+  var str = location.href.toLowerCase();
+  $("nav.site-nav a").each(function() {
+    if (str.indexOf(this.href.toLowerCase()) > -1) {
+      $("a.current").removeClass("current");
+      $(this).addClass("current");
     }
+  });
+});
+
+//Menu nav toggle
+$(document).ready(function() {
+  var $nav = $(".mobile-nav");
+  var $homeContent = $(".home-content");
+  $('.mobile-nav-toggle').click(function(show) {
+    show.stopPropagation();
+    $nav.toggle('slide', {
+      direction: 'up'
+    }, 500);
+    $homeContent.toggle('slide', {
+      direction: 'right'
+    }, 500);
+    //or .site-nav / .mobile-nav
+
+  });
 });

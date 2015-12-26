@@ -1,0 +1,20 @@
+//- Render front matter without extra line caused by gulp-jade pretty
+| ---
+| layout: default
+| featherlight: CustomJsCSS
+| ---
+
+section#galleries.galleries
+  .section-wrapper
+    .section-content
+      h4
+        a.section-name(href='/{{ site.gallery.dir }}') {{ page.title }}
+      hr
+      .gallery-container
+        |  {% for image in page.images %}
+        |         
+        .gallery-image-wrapper
+          a.thumbnail.gallery(href='{{ image }}' '{% if site.gallery.lightbox %}' rel="lightbox[{{ page.gallery }}]" '{% endif %}')
+            img.gallery-image.img(alt='{{ image }}', src='thumbs/{{ image }}')
+        |     
+        | {% endfor %}

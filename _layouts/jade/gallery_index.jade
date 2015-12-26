@@ -1,0 +1,33 @@
+//- Render front matter without extra line caused by gulp-jade pretty
+| ---
+| layout: default
+| fbshare: share
+| excerpt: Some description Here for FB posts
+| ---
+
+section#gallery-index.gallery-index
+  .section-wrapper
+    .section-content
+      h3.section-name Gallery
+      | 
+      | {% for project in site.data.projects.projects %}       
+      .description
+        | 
+        | {% for nestedabout in project.description %} 
+        p {{ nestedabout.nested }}
+        | 
+        | {% endfor %}
+      | 
+      | {% endfor %}
+      | 
+      .gallery-content 
+        | {% for gallery in page.galleries %} 
+        .gallery-wrapper
+          a(href="{{ gallery['gallery'] }}")
+            img.gallery-best-image(alt="{{ gallery['gallery'] }}", src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}")         
+          h4
+            a(href="{{ gallersy['gallery'] }}") {{ gallery["name"] }}
+          | 
+          | {{ gallery["images"] | size }} images{% if gallery["images"].size != 1 %}{% endif %}
+        | 
+        | {% endfor %}

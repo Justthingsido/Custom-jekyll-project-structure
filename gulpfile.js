@@ -40,7 +40,10 @@ var onError     = function(err) {
 // Jekyll build
 gulp.task('jekyll-build', function (done) {
     bs.notify('Running jekyll-build');
-    return cp.spawn('jekyll.bat', ['build','--incremental'], {stdio: 'inherit'})
+    // uncomment this line if using --incremental
+    // return cp.spawn('jekyll.bat', ['build','--incremental'], {stdio: 'inherit'})
+    // comment this line if not using --incremental
+    return cp.spawn('jekyll.bat', ['build'], {stdio: 'inherit'})
         .on('close', done);
 });
 
@@ -60,7 +63,14 @@ gulp.task('jade', function() {
       doctype: 'html',
       pretty: true
     }))
-    .pipe(gulp.dest('_includes'))
+    .pipe(gulp.dest('_includes'));
+  gulp.src('_layouts/jade/*.jade')
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(jade({
+      doctype: 'html',
+      pretty: true
+    }))
+    .pipe(gulp.dest('_layouts'))
     .pipe(bs.stream());
 });
 
@@ -111,7 +121,7 @@ gulp.task('browser-sync', function(done) {
 
 
 gulp.task('watch', ['build'], function() {
-  gulp.watch('_includes/jade/*.jade', ['jade']);
+  gulp.watch(['_includes/jade/*.jade', '_layouts/jade/*.jade'], ['jade']);
   //watch for sass file changes
   gulp.watch('assets/_sass/**/*.sass', ['sass']);
   gulp.watch('assets/css/*.sass', ['sass']);
