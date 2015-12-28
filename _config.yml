@@ -4,6 +4,10 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
+author:
+  - name: Guillermo Remache
+    email: guillermo@justthingsido
+    url: resume.justthingsido.com
 
 
 # Site settings
@@ -14,19 +18,22 @@ description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
+keywords: ['some list, here ']
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://resume.justthingsido.com" # the base hostname & protocol for your site
 twitter_username: GRemache93
 github_username:  justthingsido
 linkedin_username: gremache
+facebook: 'username'
 
 # used to eliminate the need to add .html at the of of the URL
 permalink: pretty
 
 #- uncomment ga if you are using Google Analytics (replace 'UA-70296153' with your own)
-# ga: UA-70296153-1
+# ga: UA-70296123-1
 #- uncomment for fbAppId (Replace '733223316...' with you own)
-# fbAppId: 733223316787067
+# fbAppId: 733223385287067
 
 # Build settings
 markdown: kramdown
@@ -34,6 +41,7 @@ markdown: kramdown
 gems:
 #   - octopress-minify-html
   - jekyll-gallery-generator
+  - jekyll-sitemap
 
 
 exclude: [node_modules, gulpfile.js, package.json, 'assets/css/main.sass']
